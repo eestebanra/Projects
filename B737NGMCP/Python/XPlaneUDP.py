@@ -38,4 +38,4 @@ dataRefs = ["sim/cockpit2/radios/actuators/hsi_obs_deg_mag_pilot", "sim/cockpit/
             "sim/cockpit2/autopilot/airspeed_dial_kts_mach", "sim/cockpit/autopilot/heading_mag",
             "sim/cockpit/autopilot/altitude", "sim/cockpit2/autopilot/vvi_dial_fpm",
             "sim/cockpit/misc/barometer_setting", "sim/cockpit2/radios/actuators/com1_frequency_hz_833",
-            "sim/cockpit/radios/nav1_freq_hz"]
+            "sim/cockpit/radios/nav1_freq_hz", "sim/cockpit2/gauges/indicators/altitude_ft_pilot"]

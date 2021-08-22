@@ -10,6 +10,9 @@ switchKeyboard = ["z", "x", "c", "v", "b", "n", "m", ","]
 pushButtonKeyboard = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "-", "=", "[", "]"]
 
 
+statusVS = 0
+
+
 def switchInput(switch):
     if switch == 3:
         pydirectinput.press(switchKeyboard[switch])
@@ -34,11 +37,15 @@ while True:
     if data.startswith("B"):
         pushButtonInput(int(data[1:]))
         if int(data[1:]) == 10:
-            XPlaneUDP.requestData(5, 1)
-            value, address = XPlaneUDP.sock.recvfrom(1024)
-            XPlaneUDP.requestData(5, 0)
-            XPlaneVSV = XPlaneUDP.decodeData(value)
-            serialMonitor.write(bytes(str(XPlaneVSV), "utf-8"))
+            if statusVS == 0:
+                statusVS = 1
+                XPlaneUDP.requestData(5, 1)
+                value, address = XPlaneUDP.sock.recvfrom(1024)
+                XPlaneUDP.requestData(5, 0)
+                XPlaneVSV = XPlaneUDP.decodeData(value)
+                serialMonitor.write(bytes(str(XPlaneVSV), "utf-8"))
+            else:
+                statusVS = 0
     # Read encoder
     if data.startswith("E"):
         XPlaneUDP.sendData(int(data[1]), float(data[2:]))

@@ -87,7 +87,7 @@ int previousIdentifier;
 
 // Switches parameters
 #define switchCOMPin 6
-int switchNAVPin = 5;
+#define switchNAVPin 5
 
 #define switchQNHmodePin 4
 int switchQNHmodeState = LOW;
@@ -798,7 +798,7 @@ void pushButton (int indexPushButton) {
 
 void setup() {
   Serial.begin(115200);
-
+  
   // Set up shift registers
   pinMode(clockSRPin, OUTPUT);
   pinMode(latchPin, OUTPUT);
@@ -921,7 +921,7 @@ void setup() {
   lcd.print(bankAngle);
 }
 
-void loop() {  
+void loop() {
   // Check if the Rotary Encoder has been slid
   checkRE(identifier);
   
